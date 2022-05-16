@@ -11,9 +11,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class NovaEmpresa {
+public class NovaEmpresa implements Acao {
 
     public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
 
         System.out.println("Cadastrando nova empresa");
 
@@ -45,7 +46,6 @@ public class NovaEmpresa {
 //        RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
 //        request.setAttribute("empresa", empresa.getNome());
 //        rd.forward(request, response);
-
 
     }
 }

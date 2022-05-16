@@ -11,7 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AlteraEmpresa {
+public class AlteraEmpresa implements Acao {
 
     public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

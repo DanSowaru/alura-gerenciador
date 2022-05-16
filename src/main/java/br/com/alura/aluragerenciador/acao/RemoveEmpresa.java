@@ -6,8 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class RemoveEmpresa {
+public class RemoveEmpresa implements Acao {
 
+    @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String paramId = request.getParameter("id");
