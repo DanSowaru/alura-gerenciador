@@ -1,27 +1,28 @@
-package br.com.alura.aluragerenciador.servlets;
+package br.com.alura.aluragerenciador.acao;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import br.com.alura.aluragerenciador.modelo.Banco;
+import br.com.alura.aluragerenciador.modelo.Empresa;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet(name = "AlteraEmpresaServlet", value = "/alteraEmpresa")
-public class AlteraEmpresaServlet extends HttpServlet {
+public class AlteraEmpresa {
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("Alterando empresa");
 
         String nomeEmpresa = request.getParameter("nome");
         String paramDataEmpresa = request.getParameter("data");
-        String paramId = request.getParameter("id");
-        Integer id = Integer.parseInt(paramId);
+        Integer id = Integer.parseInt(request.getParameter("id"));
 
-        Date dataAbertura = null;
+        System.out.println("Alterando empresa" + id);
+
+        Date dataAbertura;
 
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -37,7 +38,7 @@ public class AlteraEmpresaServlet extends HttpServlet {
         empresa.setNome(nomeEmpresa);
         empresa.setDataAbertura(dataAbertura);
 
-        response.sendRedirect("listaEmpresas");
+        return "redirect:entrada?acao=ListaEmpresas";
 
     }
 }

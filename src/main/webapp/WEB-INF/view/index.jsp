@@ -11,6 +11,6 @@
 <a href="hello-servlet">Hello Servlet (estamos no fast)</a>
 
 <a href="formNovaEmpresa.jsp">Nova Empresa</a>
-<a href="listaEmpresas">Lista de Empresas</a>
+<a href="entrada?acao=ListaEmpresas">Lista de Empresas</a>
 </body>
 </html>

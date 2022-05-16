@@ -1,8 +1,9 @@
-package br.com.alura.aluragerenciador.servlets;
+package br.com.alura.aluragerenciador.acao;
+
+import br.com.alura.aluragerenciador.modelo.Banco;
+import br.com.alura.aluragerenciador.modelo.Empresa;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -10,21 +11,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Servlet implementation class NovaEmpresaServlet
- */
-@WebServlet(urlPatterns = "/novaEmpresa", loadOnStartup = 1)
-public class NovaEmpresaServlet extends HttpServlet {
+public class NovaEmpresa {
 
-    private static final long serialVersionUID = 1L;
+    public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Cadastrando nova empresa");
 
         String nomeEmpresa = request.getParameter("nome");
         String paramDataEmpresa = request.getParameter("data");
 
-        Date dataAbertura = null;
+        Date dataAbertura;
 
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -42,12 +38,14 @@ public class NovaEmpresaServlet extends HttpServlet {
         banco.adiciona(empresa);
 
         request.setAttribute("empresa", empresa.getNome());
-        response.sendRedirect("listaEmpresas"); //aqui não tem /listaEmpresas, sem barras.
+
+        return "redirect:entrada?acao=ListaEmpresas"; //aqui não tem /listaEmpresas, sem barras.
 
 //        //chamar o JPS
 //        RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
 //        request.setAttribute("empresa", empresa.getNome());
 //        rd.forward(request, response);
-    }
 
+
+    }
 }

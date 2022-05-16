@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
-<%@ page import="java.util.List, br.com.alura.aluragerenciador.servlets.Empresa" %>
-<%@ page import="br.com.alura.aluragerenciador.servlets.Empresa" %>
+<%@ page import="java.util.List, br.com.alura.aluragerenciador.modelo.Empresa" %>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--usa-se o prefixo c, de core, como consenso--%>
@@ -26,8 +26,8 @@ Lista de empresas: <br/>
     <c:forEach items="${empresas}" var="empresa">
         <li>
                 ${empresa.nome} - <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/>
-            <a href="/gerenciador/removeEmpresa?id=${empresa.id}">remove</a>
-            <a href="/gerenciador/mostraEmpresa?id=${empresa.id}">edita</a>
+            <a href="/gerenciador/entrada?acao=RemoveEmpresa&id=${empresa.id}">remove</a>
+            <a href="/gerenciador/entrada?acao=MostraEmpresa&id=${empresa.id}">edita</a>
 
         </li>
         <%--
