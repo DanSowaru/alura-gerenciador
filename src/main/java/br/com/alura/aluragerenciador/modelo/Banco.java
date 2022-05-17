@@ -19,13 +19,14 @@ public class Banco {
 		empresa2.setId(chaveSequencial++);
 		lista.add(empresa);
 		lista.add(empresa2);
-
+		System.out.println("Banco inicializado");
 		Usuario u1 = new Usuario();
 		u1.setLogin("nico");
 		u1.setSenha("12345");
 		Usuario u2 = new Usuario();
-		u1.setLogin("ana");
-		u1.setSenha("12345");
+		u2.setLogin("ana");
+		u2.setSenha("12345");
+		System.out.println("Usuarios inicializados");
 		listaUsuarios.add(u1);
 		listaUsuarios.add(u2);
 	}
